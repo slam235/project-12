@@ -2,7 +2,7 @@ const router = require('express').Router();
 const path = require('path');
 const fs = require('fs').promises;
 
-router.get('/', (req, res) => {
+router.get('/cards', (req, res) => {
   fs.readFile(path.join(__dirname, '../data/cards.json'), { encoding: 'utf8' })
     .then((data) => {
       if (data !== undefined) {
@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
       }
     })
     .catch((err) => {
+      // eslint-disable-next-line no-console
       console.log(err);
     });
 });
