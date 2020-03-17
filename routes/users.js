@@ -6,7 +6,7 @@ router.get('/users', (req, res) => {
   fs.readFile(path.join(__dirname, '../data/users.json'), { encoding: 'utf8' })
     .then((data) => {
       if (data !== undefined) {
-        res.send(data);
+        res.send(JSON.parse(data));
       } else {
         res.send({ message: 'Невозможно прочитать .json файл' });
       }
